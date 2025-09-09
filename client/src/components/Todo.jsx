@@ -26,7 +26,7 @@ function Todo() {
     }
 
     try {
-      const req = await fetch("http://localhost:3000/api", {
+      const req = await fetch("https://todo-backend-node.vercel.app/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ function Todo() {
 
   const fetchData = async () => {
     try {
-      const req = await fetch("http://localhost:3000");
+      const req = await fetch("https://todo-backend-node.vercel.app");
       const res = await req.json();
       //console.log(res);
       setData(res.data);
@@ -62,7 +62,7 @@ function Todo() {
 
   let handleDelete = async (_id) => {
     try {
-      const req = await fetch(`http://localhost:3000/${_id}`, {
+      const req = await fetch(`https://todo-backend-node.vercel.app/${_id}`, {
         method: "DELETE",
       });
       const res = await req.json();

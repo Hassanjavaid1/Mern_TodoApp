@@ -10,7 +10,7 @@ export function EditBox(props) {
 
   const handleUpdate = async (id) => {
     try {
-      const req = await fetch("http://localhost:3000/" + id, {
+      const req = await fetch("https://todo-backend-node.vercel.app/" + id, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
