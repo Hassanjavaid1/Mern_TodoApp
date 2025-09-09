@@ -7,7 +7,7 @@ route.put("/:id", async (req, res) => {
 
   try {
     //Connection Check...
-    dbConnection();
+    await dbConnection();
     let update = await User.updateOne({ _id: id }, { $set: { title: title } });
     console.log(update);
     return res.json({ message: "Success" });
