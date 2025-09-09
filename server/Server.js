@@ -20,7 +20,7 @@ route.get("/", async (req, res) => {
     return res.json({ data });
   } catch (err) {
     console.log(err);
-    return res.json({ err });
+    return res.status(500).json({ err });
   }
 });
 
