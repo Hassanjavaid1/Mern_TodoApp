@@ -20,15 +20,18 @@ route.get("/", async (req, res) => {
     return res.json({ data });
   } catch (err) {
     console.log(err);
+    return res.json({ err });
   }
 });
 
 //Routes
 route.use("/api", addTask);
-route.use("/",deleteTask)
-route.use("/",updateTask)
+route.use("/", deleteTask);
+route.use("/", updateTask);
 
 //Server Port
-route.listen(process.env.PORT, () =>
-  console.log("Server running on port: " + process.env.PORT)
-);
+// route.listen(process.env.PORT, () =>
+//   console.log("Server running on port: " + process.env.PORT)
+// );
+
+module.exports = route
