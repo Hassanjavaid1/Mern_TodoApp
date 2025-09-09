@@ -20,7 +20,7 @@ route.get("/", async (req, res) => {
     return res.json({ data });
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ message: "Internal error occure", err });
+    return res.status(500).json({ message: "Internal server error", err });
   }
 });
 
@@ -30,8 +30,8 @@ route.use("/", deleteTask);
 route.use("/", updateTask);
 
 //Server Port
-route.listen(process.env.PORT, () =>
-  console.log("Server running on port: " + process.env.PORT)
-);
+// route.listen(process.env.PORT, () =>
+//   console.log("Server running on port: " + process.env.PORT)
+// );
 
 module.exports = route;
