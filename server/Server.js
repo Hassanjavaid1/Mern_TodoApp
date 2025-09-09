@@ -13,8 +13,8 @@ route.use(express.json());
 route.use(cors());
 
 route.get("/", async (req, res) => {
-  dbConnection();
   try {
+   await dbConnection();
     let data = await User.find({}, { title: 1 }).sort({ _id: -1 });
     console.log(data);
     return res.json({ data });
@@ -30,8 +30,8 @@ route.use("/", deleteTask);
 route.use("/", updateTask);
 
 //Server Port
-// route.listen(process.env.PORT, () =>
-//   console.log("Server running on port: " + process.env.PORT)
-// );
+route.listen(process.env.PORT, () =>
+  console.log("Server running on port: " + process.env.PORT)
+);
 
 module.exports = route;
